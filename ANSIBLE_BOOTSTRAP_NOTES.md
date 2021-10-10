@@ -86,3 +86,4 @@ ansible windows -i invjw -m win_updates -a "category_names=DefinitionUpdates sta
 
 ## References
 * https://www.ansible.com/blog/windows-updates-and-ansible
+* https://aventistech.com/kb/ansible-with-kerberos-authentication/
