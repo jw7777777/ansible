@@ -3,19 +3,19 @@
 ## Configure Ansible control station
 
 ### Install pip, ansible, cockpit and tmux
-
+```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip -y
 sudo apt install tmux cockpit -y
 sudo apt-get install python-dev libkrb5-dev krb5-user
 
-
 pip install --upgrade pip --user
 pip install ansible --user
 pip install pywinrm[kerberos] --user
 pip install --upgrade pywinrm[kerberos] --user
-
+```
 ### Sample /etc/krb5.conf
+```bash
 [libdefaults]
         default_realm = RJKNET.CA
 
@@ -49,13 +49,16 @@ pip install --upgrade pywinrm[kerberos] --user
 
 [domain_realm]
         .rjknet.ca = RJKNET.CA
+```
 
-
-### Windows Server configuration
-- Enable-PSRemoting
-- add user RJKNET\zs_ansible to Domain Administrators group (or local admin on each host)  
+## Windows Server configuration
+```powershell
+Enable-PSRemoting
+```
+add user RJKNET\zs_ansible to Domain Administrators group (or local admin on each host)  
 
 ### Example inventory file invjw for Windows WinRM hosts
+```bash
 [windows]
 win01.rjknet.ca
 win02.rjknet.ca
@@ -68,14 +71,15 @@ ansible_connection=winrm
 ansible_winrm_scheme=http
 ansible_port=5985
 ansible_winrm_transport=kerberos
-
-### Example Ansible ad-hoc commands
+```
+## Example Ansible ad-hoc commands
 
 #### Apply Windows Updates
-```powershell
+```bash
 ansible windows -i invjw -m win_updates -a "category_names=["CriticalUpdates","SecurityUpdates","UpdateRollups","DefinitionUpdates"] state=installed reboot=yes"
-
+```
 #### Apply Windows Defender Definition Updates
+```bash
 ansible windows -i invjw -m win_updates -a "category_names=DefinitionUpdates state=installed reboot=yes"
 ```
 
