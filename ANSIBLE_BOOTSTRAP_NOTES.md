@@ -89,3 +89,5 @@ ansible windows -i invjw -m win_updates -a "category_names=DefinitionUpdates sta
 ## References
 * https://www.ansible.com/blog/windows-updates-and-ansible
 * https://aventistech.com/kb/ansible-with-kerberos-authentication/
+* http://devopstechie.com/ansible-manage-windows-machine-with-ansible-by-credssp/?i=1
+* https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ps-remoting-second-hop?view=powershell-7.1
