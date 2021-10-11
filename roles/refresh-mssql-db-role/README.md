@@ -77,6 +77,7 @@ Including an example of how to use your role (for instance, with variables passe
     mssql_dst_db_instance: win03
     mssql_src_db_name: AdventureWorks 
     mssql_dst_db_name: AdventureWorks_DEV
+    mssql_fileshare_path: \\win03\MSSQLBackup
   roles:
     - microsoft.sql.server
 ```
