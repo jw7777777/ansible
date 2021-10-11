@@ -1,0 +1,9 @@
+- hosts: all
+  vars:
+    mssql_src_db_instance: win02
+    mssql_dst_db_instance: win03
+    mssql_src_db_name: AdventureWorks
+    mssql_dst_db_name: AdventureWorks_DEV
+    mssql_fileshare_path: \\win03\MSSQLBackup
+  roles:
+    - refresh-mssql-db-role

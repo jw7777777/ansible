@@ -1,0 +1,23 @@
+---
+# tasks file for refresh-mssql-db-role
+- name: Ensure the required NuGet package provider version is installed
+  win_shell: Find-PackageProvider -Name Nuget -ForceBootstrap -IncludeDependencies -Force
+
+- name: Install or upgrade dbatools Powershell module to the newest version
+  win_psmodule:
+    name: dbatools
+    state: latest
+
+- name: Deploy database refresh Jinja2 template
+  template:
+    src: refresh-db-script.j2
+    dest: "c:\\temp\\refresh-db-script.ps1"
+
+- name: Run refresh database Powershell script
+  win_command: powershell.exe -ExecutionPolicy ByPass -File C:/temp/refresh-db-script.ps1
+  register: pwsh_output
+
+- name: Display Powershell script results
+  debug:
+    var: pwsh_output.stdout_lines
+
