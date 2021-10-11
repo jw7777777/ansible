@@ -6,8 +6,12 @@ Refresh a SQL Server database
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+To workaround WinRM "double-hop" issue, enable CredSSP on the destination SQL Server instance
 
+e.g on server win03 in this example.
+```powershell
+Enable-WSManCredSSP -Role Server -Force
+```
 Role Variables
 --------------
 

@@ -1,1 +1,1 @@
-Copy-DbaDatabase -Source {{ mssql_src_db_instance }} -Destination {{ mssql_dst_db_instance }} -Database {{ mssql_src_db_name }} -NewName {{ mssql_dst_db_name}} -BackupRestore -SharedPath {{ mssql_fileshare_path }}
+Copy-DbaDatabase -Source {{ mssql_src_db_instance }} -Destination {{ mssql_dst_db_instance }} -Database {{ mssql_src_db_name }} -NewName {{ mssql_dst_db_name}} -Force -BackupRestore -SharedPath {{ mssql_fileshare_path }}

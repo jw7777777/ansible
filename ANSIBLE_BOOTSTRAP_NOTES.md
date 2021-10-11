@@ -57,11 +57,13 @@ Enable-PSRemoting
 ```
 add user RJKNET\zs_ansible to Domain Administrators group (or local admin on each host)  
 
+### Enable credssp to workaround WinRM "double-hop" issue with kerberos on destination SQL server instance e.g. win03
+```powershell
+Enable-WSManCredSSP -Role Server -Force
+```
 ### Example inventory file invjw for Windows WinRM hosts
 ```bash
 [windows]
-win01.rjknet.ca
-win02.rjknet.ca
 win03.rjknet.ca
 
 [windows:vars]
@@ -70,7 +72,7 @@ ansible_password=Sup3rS3cr3t
 ansible_connection=winrm
 ansible_winrm_scheme=http
 ansible_port=5985
-ansible_winrm_transport=kerberos
+ansible_winrm_transport=credssp
 ```
 ## Example Ansible ad-hoc commands
 
