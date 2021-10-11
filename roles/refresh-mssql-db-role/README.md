@@ -70,7 +70,7 @@ Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+```yaml
 - hosts: all
   vars:
     mssql_src_db_instance: win02
@@ -79,7 +79,7 @@ Including an example of how to use your role (for instance, with variables passe
     mssql_dst_db_name: AdventureWorks_DEV
   roles:
     - microsoft.sql.server
-
+```
 License
 -------
 
