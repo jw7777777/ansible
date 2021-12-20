@@ -1,0 +1,23 @@
+ - name: "Bootstrap python install"
+    raw: "apt install -y python3-pip"
+    become: yes
+
+  # create a new group
+  - name: Create the new group ansible
+    group:
+      name: ansible
+      state: present
+    become: yes
+
+  # create new user on target system
+  - name: Add user 'ansible' with group of 'ansible'
+    user:
+      name: ansible
+      comment: "ansible"
+      password: $6$awOZ3DAz3$EIYAf53D8aVJGs6GZ9N1ZfQW1P/1Vhr88T2cIvE9R95SRUPm5U2i07kkuc4cjVPT1o4KksKmI.eGIs65KVGdG0 
+      state: present
+      shell: /bin/bash       # Defaults to /bin/bash
+      system: no             # Defaults to no
+      createhome: yes        # Defaults to yes
+      group: ansible
+    become: yes            
