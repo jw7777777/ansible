@@ -1,6 +1,6 @@
 #!/bin/bash
-#Purpose:  Automate the bounce and clearing of web/app caches for Peoplesoft Finance FSPROD85
-#Author:   Jason Wash, City of Kingston
+#Purpose:  Automate the bounce and clearing of web/app caches for Peoplesoft Finance 
+#Author:   Ja Wa
 
 
 
@@ -55,5 +55,5 @@ mv /tmp/bounce.log /tmp/bounce.log.bak
 #psadmin -env
 
 #Check that process scheduler is running
-#psadmin -p status -d FSPROD85
+#psadmin -p status -d FSPROD
 
